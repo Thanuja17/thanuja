@@ -1,0 +1,152 @@
+from tkinter import *
+root=Tk()
+
+def chatbot():
+    send=e.get("1.0",'end-1c').strip()
+    e.delete("0.0",END)
+
+    if send != '':
+        
+        txt.config(state=NORMAL)
+        txt.insert(END, "You: " + send + '\n')
+        txt.config(foreground="white", font=("Verdana", 8 ))
+    
+    
+    j=send.split()
+    k=len(j)
+    #print(j)
+
+    for l in range(0,k):
+        if(j[l]=="hi" or j[l]=="hello" or j[l]=="hey" or j[l]=="Hi" or j[l]=="Hello"):
+            txt.insert(END,"\n"+"BOT:Hello!, I am here to solve your examination quaries.\n\n")
+            
+    
+    for l in range(0,k):
+        if(j[l]=="examination" or j[l]=="exam" or j[l]=="exams" ):
+            for m in range(0,k):
+                if(j[m]=="conducted"):
+                    txt.insert(END,"\n"+"BOT:Exams are conducted by lpu examination department.\n\n")
+                    
+    for l in range(0,k):
+        if(j[l]=="examination" or j[l]=="exam"):
+            for m in range(0,k):
+                if(j[m]=="date"or j[m]=="dates"):
+                    txt.insert(END,"\n"+"BOT:exams are from 29-04-2020 to 13-05-2020.\n\n")
+                    
+    for l in range(0,k):
+        if(j[l]=="examination" or j[l]=="exams"):
+            for m in range(0,k):
+                if(j[m]=="from" or j[m]=="starting from"):
+                    txt.insert(END,"\n"+"BOT:exams are from 29-04-2020.\n\n")
+                    
+
+    for l in range(0,k):
+        if(j[l]=="examination " or j[l]=="exams" or j[l]=="exam"):
+            for m in range(0,k):
+                if(j[m]=="till" or j[m]=="ending" or j[m]=="end" or j[m]=="ends"):
+                    txt.insert(END,"\n"+"BOT:exams are from 13-05-2020.\n\n")
+                    
+    for l in range(0,k):
+        if(j[l]=="examination"):
+            for m in range(0,k):
+                if(j[m]=="instructions"):
+                    txt.insert(END,"\n"+"BOT:You can find examination instruction in UMS \n Follow the path UMS navigation -> Examination -> Examination Queries.\n\n")
+                    
+
+            
+    for l in range(0,k):
+        if(j[l]=="examination instructions" or j[l]=="instructions"):
+            for n in range(0,k):
+                if(j[n]=="for"):
+                    for m in range(0,k):
+                        if(j[m]=="exams" or j[m]=="examination"):
+                            txt.insert(END,"\n"+"BOT:You can find examination instruction in UMS \n Follow the path UMS navigation -> Examination -> Examination Queries.\n\n")
+                            
+    for l in range(0,k):
+        if(j[l]=="seating"):
+            for m in range(0,k):
+                if(j[m]=="plan" or j[m]=="arrangement"):
+                    txt.insert(END,"\n"+"BOT:It will be available in your alloted examination class.\n\n")
+
+
+    for l in range(0,k):
+        if(j[l]=="examination" or j[l]=="exam"):
+            for m in range(0,k):
+                if(j[m]=="timings" or j[m]=="classroom"):
+                    txt.insert(END,"\n"+"BOT:It will be uploaded on ums->seating arrangements or it will be available on lpu touch exams available.\n\n")
+ 
+
+    for l in range(0,k):
+        if(j[l]=="exam"):
+            for m in range(0,k):
+                if(j[m]=="pattern"):
+                    txt.insert(END,"\n"+"BOT:It is based on the course.you can available it in the UMS.\n\n")
+
+
+    for l in range(0,k):
+        if(j[l]=="grades"):
+            txt.insert(END,"\n"+"BOT:Grades are given by subject wise.where grade O to D are passed and E grade is reapper,F is fail.you have 5 chances to clear your reappers.\n\n")
+
+
+
+    for l in range(0,k):
+        if(j[l]=="doubts" or  j[l]=="discrepency"):
+            for n in range(0,k):
+                if(j[n]=="in"):
+                    for m in range(0,k):
+                        if(j[m]=="exams" or j[m]=="examination"):
+                            txt.insert(END,"\n"+"BOT:There was a discrepancy form with invigilator there you need to fill your doubts in the question paper.\n\n")
+
+
+    for l in range(0,k):
+        if(j[l]=="eligible"):
+            for n in range(0,k):
+                if(j[n]=="for"):
+                    for m in range(0,k):
+                        if(j[m]=="exams" or j[m]=="examination"):
+                            txt.insert(END,"\n"+"BOT:Students whose attendence is above 75% are eligible for examination.\n\n")
+
+
+
+    for l in range(0,k):
+        if(j[l]=="contact"):
+            for m in range(0,k):
+                if(j[m]=="details"):
+                    txt.insert(END,"\n"+"BOT:Here is our contact numbers:\n9986523741\n7894561235.\n\n")
+     
+
+    for l in range(0,k):
+        if(j[l]=="bye"):
+            txt.insert(END,"\n"+"BOT:Hope your queries are cleared and if you any further doubts you can visit block no:30 \n All the best for your exams from LPU chatbot.\n\n")
+
+
+                
+    
+
+
+txt=Text(root)
+txt.grid(row=0,column=0,columnspan=2)
+root.geometry("400x500")
+root.resizable(width=FALSE, height=FALSE)
+
+e=Text(root, bd=0, bg="white",width="29", height="5", font="Arial")
+SendButton = Button(root, font=("Verdana",12,'bold'), text="Send", width="12", height=5,
+                    bd=0, bg="#32de97", activebackground="#3c9d9b",fg='#ffffff',
+                    command=chatbot)
+
+root.title("LPU EXAMINATION QUERIES")
+
+
+txt = Text(root, bd=0, bg="black", height="8", width="50", font="Arial",)
+txt.config(state=DISABLED)
+
+scrollbar = Scrollbar(root, command=txt.yview)
+txt['yscrollcommand'] = scrollbar.set
+
+scrollbar.place(x=376,y=6, height=386)
+txt.place(x=6,y=6, height=386, width=370)
+e.place(x=144, y=401, height=90, width=265)
+SendButton.place(x=6, y=401, height=90)
+
+
+root.mainloop()
