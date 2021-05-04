@@ -1,0 +1,39 @@
+package cse376selenium;
+
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.Select;
+
+
+public class selenium {
+
+	public static void main(String[] args) throws InterruptedException {
+		ChromeDriver driver = new ChromeDriver();
+		driver.get("http://demo.guru99.com/test/newtours/reservation.php");
+		
+		driver.findElementByXPath("/html/body/div[2]/table/tbody/tr/td[2]/table/tbody/tr[4]/td/table/tbody/tr/td[2]/table/tbody/tr[5]/td/form/table/tbody/tr[2]/td[2]/b/font").click();
+		
+		WebElement test = driver.findElement(By.name("passCount"));
+				Select dropdown =new Select(test);
+		dropdown.selectByVisibleText("2");
+		Select dropdown1 = new Select(driver.findElementByClassName("fromPort"));
+		dropdown1.selectByVisibleText("paris");
+		WebElement departing = driver.findElement(By.name("fromPortt"));
+		Select dropdown11 =new Select(departing);
+		dropdown11.selectByVisibleText("Paris");
+		Select arrive = new Select(driver.findElementByClassName("toPort"));
+		Select dropdown111 =new Select(departing);
+		dropdown1.selectByVisibleText("Sydney");
+		driver.findElement(By.name("servClass")).click();
+		driver.findElement(By.name("findFlights")).click();
+		
+		
+
+		
+
+}
+}
